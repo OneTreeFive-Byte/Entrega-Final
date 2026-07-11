@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Iniciar Sesión | Chévere</title>
+<meta name="description" content="Inicia sesión en tu cuenta de Chévere" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='g' x1='0' x2='1' y1='0' y2='1'><stop offset='0' stop-color='%23f472b6'/><stop offset='1' stop-color='%236b21a8'/></linearGradient></defs><rect width='64' height='64' rx='14' fill='%23ffffff' stroke='url(%23g)' stroke-width='2'/><path d='M18 20h28M32 20v24M22 44h20' stroke='url(%23g)' stroke-width='3' fill='none' stroke-linecap='round'/></svg>" />
+<link rel="icon" type="image/png" href="../favicon.ico" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/fonts/inter@4.5.14/latin-400-normal.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/fonts/inter@4.5.14/latin-600-normal.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/fonts/inter@4.5.14/latin-700-normal.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/fonts/playfair-display@5.1.0/latin-400-normal.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/fonts/playfair-display@5.1.0/latin-700-normal.css" />
+<link rel="stylesheet" href="../css/base.css" />
+<link rel="stylesheet" href="../css/style.css" />
+<link rel="stylesheet" href="../css/footer.css" />
+</head>
+<body>
+<!-- HEADER -->
+<header class="header">
+  <div class="container header-inner">
+    <a href="../index.html" class="brand">
+      <img src="https://image.qwenlm.ai/public_source/5464824b-34b1-42b4-9ff7-767d94e66660/1fe306d33-45ae-4106-9a18-793a06dfd921.png" alt="Talento Tech logo" />
+      <span class="brand-text">
+        Chévere
+        <small>Tienda Online</small>
+      </span>
+    </a>
+    <nav class="nav">
+      <a href="../index.html">Inicio</a>
+      <a href="../index.html#productos">Productos</a>
+      <a href="../index.html#reviews">Reseñas</a>
+      <a href="../index.html#contacto">Contacto</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn hide-mobile" id="searchBtn" aria-label="Buscar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      </button>
+      <button class="icon-btn" id="cartBtn" aria-label="Carrito">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+<!-- AUTH PAGE -->
+<div class="auth-page">
+  <div class="auth-card">
+    <a href="../index.html" class="modal-close" style="text-decoration:none;color:inherit">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </a>
+    <div class="modal-head">
+      <h2>Bienvenido de vuelta</h2>
+      <p>Inicia sesión para continuar</p>
+    </div>
+    <div class="modal-body">
+      <form id="loginPageForm">
+        <div class="form-field">
+          <label>Correo electrónico</label>
+          <input type="email" required placeholder="tu@correo.com"/>
+        </div>
+        <div class="form-field">
+          <label>Contraseña</label>
+          <input type="password" required placeholder="••••••••"/>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;font-size:.85rem">
+          <label style="display:flex;gap:6px;align-items:center;cursor:pointer">
+            <input type="checkbox"/> Recordarme
+          </label>
+          <a style="color:var(--c-primary-dark);cursor:pointer">¿Olvidaste tu contraseña?</a>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">Iniciar sesión</button>
+      </form>
+      <div class="divider">o continúa con</div>
+      <div class="social-login">
+        <button class="social-btn" aria-label="Google">
+          <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        </button>
+        <button class="social-btn" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </button>
+        <button class="social-btn" aria-label="Apple">
+          <svg viewBox="0 0 24 24" fill="#000"><path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="modal-foot">
+      ¿No tienes cuenta? <a href="register.html" id="openRegister">Regístrate aquí</a>
+    </div>
+  </div>
+</div>
+<!-- CART DRAWER -->
+<div class="drawer-overlay" id="cartOverlay"></div>
+<aside class="drawer" id="cartDrawer">
+  <div class="drawer-head">
+    <h3>Tu Carrito</h3>
+    <button class="icon-btn" id="cartClose">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <div class="drawer-body" id="cartBody"></div>
+  <div class="drawer-foot" id="cartFoot" style="display:none">
+    <div class="cart-summary">
+      <div class="cart-row"><span>Subtotal</span><span id="cartSubtotal">$0.00</span></div>
+      <div class="cart-row"><span>Envío</span><span id="cartShipping">Gratis</span></div>
+      <div class="cart-row total"><span>Total</span><span id="cartTotal">$0.00</span></div>
+    </div>
+    <button class="btn btn-primary checkout-btn" id="checkoutBtn">
+      Finalizar compra
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </button>
+  </div>
+</aside>
+<div class="toast-wrap" id="toastWrap"></div>
+<script src="../js/main.js"></script>
+<script src="../js/carrito.js"></script>
+<script src="../js/login.js"></script>
+<script src="../js/register.js"></script>
+</body>
+</html>

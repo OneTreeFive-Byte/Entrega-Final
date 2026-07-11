@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Carrito | Chévere</title>
+<meta name="description" content="Revisa tu carrito de compras en Chévere" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='g' x1='0' x2='1' y1='0' y2='1'><stop offset='0' stop-color='%23f472b6'/><stop offset='1' stop-color='%236b21a8'/></linearGradient></defs><rect width='64' height='64' rx='14' fill='%23ffffff' stroke='url(%23g)' stroke-width='2'/><path d='M18 20h28M32 20v24M22 44h20' stroke='url(%23g)' stroke-width='3' fill='none' stroke-linecap='round'/></svg>" />
+<link rel="icon" type="image/png" href="../favicon.ico" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/fonts/inter@4.5.14/latin-400-normal.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/fonts/inter@4.5.14/latin-600-normal.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/fonts/inter@4.5.14/latin-700-normal.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/fonts/playfair-display@5.1.0/latin-400-normal.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/fonts/playfair-display@5.1.0/latin-700-normal.css" />
+<link rel="stylesheet" href="../css/base.css" />
+<link rel="stylesheet" href="../css/style.css" />
+<link rel="stylesheet" href="../css/footer.css" />
+</head>
+<body>
+<!-- HEADER -->
+<header class="header">
+  <div class="container header-inner">
+    <a href="../index.html" class="brand">
+      <img src="https://image.qwenlm.ai/public_source/5464824b-34b1-42b4-9ff7-767d94e66660/1fe306d33-45ae-4106-9a18-793a06dfd921.png" alt="Talento Tech logo" />
+      <span class="brand-text">
+        Chévere
+        <small>Tienda Online</small>
+      </span>
+    </a>
+    <nav class="nav">
+      <a href="../index.html">Inicio</a>
+      <a href="../index.html#productos">Productos</a>
+      <a href="../index.html#reviews">Reseñas</a>
+      <a href="../index.html#contacto">Contacto</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn hide-mobile" id="searchBtn" aria-label="Buscar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      </button>
+      <button class="icon-btn hide-mobile" id="userBtn" aria-label="Cuenta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </button>
+      <button class="icon-btn" id="cartBtn" aria-label="Carrito">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+<!-- CART PAGE -->
+<div class="cart-page">
+  <div class="container">
+    <div class="page-hero" style="margin-bottom:40px">
+      <h1>Tu Carrito</h1>
+      <p>Revisa tus productos antes de finalizar la compra</p>
+    </div>
+    <div class="cart-page-grid">
+      <div class="cart-items-list" id="cartPageList"></div>
+      <div class="cart-summary-box" id="cartPageSummary"></div>
+    </div>
+  </div>
+</div>
+<!-- CART DRAWER -->
+<div class="drawer-overlay" id="cartOverlay"></div>
+<aside class="drawer" id="cartDrawer">
+  <div class="drawer-head">
+    <h3>Tu Carrito</h3>
+    <button class="icon-btn" id="cartClose">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <div class="drawer-body" id="cartBody"></div>
+  <div class="drawer-foot" id="cartFoot" style="display:none">
+    <div class="cart-summary">
+      <div class="cart-row"><span>Subtotal</span><span id="cartSubtotal">$0.00</span></div>
+      <div class="cart-row"><span>Envío</span><span id="cartShipping">Gratis</span></div>
+      <div class="cart-row total"><span>Total</span><span id="cartTotal">$0.00</span></div>
+    </div>
+    <button class="btn btn-primary checkout-btn" id="checkoutBtn">
+      Finalizar compra
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </button>
+  </div>
+</aside>
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="brand" style="color:#fff">
+          <img src="https://image.qwenlm.ai/public_source/5464824b-34b1-42b4-9ff7-767d94e66660/1fe306d33-45ae-4106-9a18-793a06dfd921.png" alt="logo" />
+          <span class="brand-text">
+            Chévere
+            <small style="color:#94a3b8">Tienda Online</small>
+          </span>
+        </a>
+        <p>Moda con estilo único y atemporal. Cada prenda es una obra de arte diseñada para ti.</p>
+      </div>
+      <div>
+        <h4>Tienda</h4>
+        <ul>
+          <li><a href="../index.html#productos">Novedades</a></li>
+          <li><a href="../index.html#productos">Vestidos</a></li>
+          <li><a href="../index.html#productos">Accesorios</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Ayuda</h4>
+        <ul>
+          <li><a href="../index.html#contacto">Contacto</a></li>
+          <li><a href="#">Envíos</a></li>
+          <li><a href="#">Devoluciones</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="#">Sobre nosotros</a></li>
+          <li><a href="#">Términos</a></li>
+          <li><a href="#">Privacidad</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Chévere - Todos los derechos reservados</span>
+      <span class="badge">🔒 Pago seguro · SSL</span>
+    </div>
+  </div>
+</footer>
+<div class="toast-wrap" id="toastWrap"></div>
+<script src="../js/main.js"></script>
+<script src="../js/carrito.js"></script>
+<script src="../js/login.js"></script>
+<script src="../js/register.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    renderCartPage();
+  });
+</script>
+</body>
+</html>
